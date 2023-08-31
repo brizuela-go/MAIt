@@ -34,19 +34,19 @@ export async function GET() {
     const stripeSession = await stripe.checkout.sessions.create({
       success_url: settingsUrl,
       cancel_url: settingsUrl,
-      payment_method_types: ["card", "oxxo", "paypal"],
+      payment_method_types: ["card"],
       mode: "subscription",
       billing_address_collection: "auto",
       customer_email: user.emailAddresses[0].emailAddress,
       line_items: [
         {
           price_data: {
-            currency: "MXN",
+            currency: "USD",
             product_data: {
-              name: "MAIt",
+              name: "Genius Pro",
               description: "Unlimited AI Generations",
             },
-            unit_amount: 20000,
+            unit_amount: 2000,
             recurring: {
               interval: "month",
             },
@@ -61,7 +61,7 @@ export async function GET() {
 
     return new NextResponse(JSON.stringify({ url: stripeSession.url }));
   } catch (error) {
-    console.log("ERROR!", error);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    console.log("[STRIPE_ERROR]", error);
+    return new NextResponse("Internal Error", { status: 500 });
   }
 }
