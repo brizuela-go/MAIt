@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { useProModalStore } from "@/hooks/use-pro-modal";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { tools } from "@/app/(dashboard)/(routes)/dashboard/page";
+import { tools } from "@/constants";
 
 export const ProModal = () => {
   const proModal = useProModalStore();

@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { tools } from "@/constants";
 import {
   ChatBubbleIcon,
   ArrowRightIcon,
@@ -14,44 +15,6 @@ import { NextPage } from "next";
 import { useRouter } from "next/navigation";
 
 type Props = {};
-
-export const tools = [
-  {
-    label: "Conversation",
-    icon: ChatBubbleIcon,
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
-    href: "/conversation",
-  },
-  {
-    label: "Music Generation",
-    icon: PlayIcon,
-    color: "text-emerald-700",
-    bgColor: "bg-emerald-700/10",
-    href: "/music",
-  },
-  {
-    label: "Image Generation",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-    href: "/image",
-  },
-  {
-    label: "Video Generation",
-    icon: VideoIcon,
-    color: "text-orange-700",
-    bgColor: "bg-orange-700/10",
-    href: "/video",
-  },
-  {
-    label: "Code Generation",
-    icon: CodeIcon,
-    color: "text-green-700",
-    bgColor: "bg-green-700/10",
-    href: "/code",
-  },
-];
 
 const DashboardPage: NextPage = (props: Props) => {
   const router = useRouter();
