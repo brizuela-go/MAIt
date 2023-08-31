@@ -34,19 +34,19 @@ export async function GET() {
     const stripeSession = await stripe.checkout.sessions.create({
       success_url: settingsUrl,
       cancel_url: settingsUrl,
-      payment_method_types: ["card"],
+      payment_method_types: ["card", "oxxo"],
       mode: "subscription",
       billing_address_collection: "auto",
       customer_email: user.emailAddresses[0].emailAddress,
       line_items: [
         {
           price_data: {
-            currency: "USD",
+            currency: "MXN",
             product_data: {
-              name: "Genius Pro",
+              name: "MAit Pro",
               description: "Unlimited AI Generations",
             },
-            unit_amount: 2000,
+            unit_amount: 19900,
             recurring: {
               interval: "month",
             },
